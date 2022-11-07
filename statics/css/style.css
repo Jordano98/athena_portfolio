@@ -2095,3 +2095,14 @@ span.error {
 .gsap-reveal-img .reveal-wrap .reveal-content .portfolio-item-content h3 {
   margin-bottom: 10px;
 }
+
+.page-item{
+  background-color: #69a096;
+  border-radius: 4px;
+}
+.page-link{
+  background-color: #3b6875;
+  color: #ecf7f5;
+  padding: 15px 30px;
+  font-weight: 400;
+}
