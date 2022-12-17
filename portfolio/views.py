@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from portfolio.models import Project,Collection
 from django.shortcuts import redirect, render
 
@@ -6,9 +5,10 @@ from django.shortcuts import redirect, render
 def portfolio_galview(request,pid):
 
     projects=Project.objects.filter(collection_name_id=pid)
-    
+    collection=Collection.objects.get(col_name_id=pid)
 
-    context={'projects':projects }
+    context={'projects':projects,'collection':collection }
+    print(collection)
     return render(request,'portfolio/portfolio-gal.html',context)
 
 def portfolio_view(request,did):
