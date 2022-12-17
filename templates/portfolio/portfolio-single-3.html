@@ -49,7 +49,7 @@
           <div class="row align-items-center justify-content-between text-left">
             
             <div class="site-logo pos-absolute">
-              <a href="index.html" class="unslate_co--site-logo"><span><<<  </span>Collection</a>
+              <a href="{% url 'website:index' %}" class="unslate_co--site-logo"><span><<<  </span>Home</a>
             </div>
             
           </div>
@@ -69,10 +69,10 @@
             <div class="row justify-content-between align-items-stretch">
 
               <div class="col-lg-8">
-                <p><a href="{% static 'images/work_2_full.jpg' %}" data-fancybox="gal"><img  src="{% static 'images/work_2_full.jpg' %}" alt="Image" class="img-fluid"></a></p>
-                <p><a href="{% static 'images/work_2_a_full.jpg' %}" data-fancybox="gal"><img src="{% static 'images/work_2_a_full.jpg' %}" alt="Image" class="img-fluid"></a></p>
-                <p><a href="{% static 'images/work_2_b_full.jpg' %}" data-fancybox="gal"><img src="{% static 'images/work_2_b_full.jpg' %}" alt="Image" class="img-fluid"></a></p>
-              </div>
+                  {% for image in detail.gallery.all %}
+                  <p><a href="{{image.image.url}}" data-fancybox="gal"><img  src="{{image.image.url}}" alt="Image" class="img-fluid"></a></p>
+                  {% endfor %}
+                </div>
               <div class="col-lg-4 pl-lg-5">
                 <div class="unslate_co--sticky">
                   <div class="row">
@@ -101,12 +101,16 @@
           <div class="row">
               <div class="col-md-3 m-auto">
                 <ul class="pagination">
+                  {% if prevpost %}
                   <li class="page-item">
-                    <a class="page-link" href="#"><span><<<</span>Prev</a>
+                    <a class="page-link" href="{% url 'portfolio:details' did=prevpost.id %}"><span><<<</span>Prev</a>
                   </li>
+                  {% endif %}
+                  {% if nextpost %}
                   <li class="page-item">
-                    <a class="page-link" href="#">Next<span>>>></span></a>
+                    <a class="page-link" href="{% url 'portfolio:details' did=nextpost.id %}">Next<span>>>></span></a>
                   </li>
+                  {% endif %}
                 </ul>
               </div>
           </div>

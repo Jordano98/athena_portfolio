@@ -3,6 +3,6 @@ from portfolio.views import portfolio_view,portfolio_galview
 app_name='portfolio'
 
 urlpatterns=[
-    path('details/',portfolio_view,name='details'),
-    path('gallery/',portfolio_galview,name='gallery'),
+    path('details/<int:did>',portfolio_view,name='details'),
+    path('<int:pid>',portfolio_galview,name='gallery'),
 ]
