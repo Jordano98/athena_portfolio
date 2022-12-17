@@ -22,6 +22,10 @@ def index_view(request):
     context={'collections':collections,'form':form}
     return render(request,'website/index.html',context)
 
+def as_view(request):
+
+    return render(request,'website/as.html')
+
 # def contact_view(request):
 #     if request.method=='POST':
 #         form=contactform(request.POST)
