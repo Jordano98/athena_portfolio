@@ -10,9 +10,7 @@ def index_view(request):
     if request.method=='POST':
         form=contactform(request.POST)
         if form.is_valid():
-            name=form.cleaned_data['name']
-            result=form.save(commit=False)
-            result.name='unknown'
+            result=form
             result.save()
             messages.add_message(request,messages.SUCCESS,'your ticket submited successfully')
         else:
