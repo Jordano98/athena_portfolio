@@ -8,7 +8,7 @@ SECRET_KEY = 'django-insecure-#4k3rs$@cv0i#8dr6oh1_1mf&p(-q((ql6&hd61_37#j_soc7#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['atenaamini.com','www.atenaamini.com']
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
