@@ -2,10 +2,12 @@ from django.shortcuts import render
 from portfolio.models import Collection
 from website.forms import contactform
 from django.contrib import messages
+from website.models import CV,Artist_statement
 
 def index_view(request):
 
     collections=Collection.objects.all()
+    cv=CV.objects.last()
 
     if request.method=='POST':
         form=contactform(request.POST)
@@ -17,12 +19,15 @@ def index_view(request):
             messages.add_message(request,messages.ERROR,'your ticket did not submited')
     form=contactform()
 
-    context={'collections':collections,'form':form}
+    context={'collections':collections,'form':form,'cv':cv}
     return render(request,'website/index.html',context)
 
 def as_view(request):
 
-    return render(request,'website/as.html')
+    statement=Artist_statement.objects.last()
+    context={'statement':statement}
+
+    return render(request,'website/as.html',context)
 
 # def contact_view(request):
 #     if request.method=='POST':

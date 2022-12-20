@@ -13,4 +13,9 @@ class Contact(models.Model):
     def __str__(self):
         return self.name
 
+class Artist_statement(models.Model):
+    passage=models.TextField()
+
+class CV(models.Model):
+    cv_file=models.FileField(upload_to='website/')
 # Create your models here.
